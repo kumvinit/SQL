@@ -9,7 +9,7 @@ CREATE TABLE `products` (
   `quantity_in_stock` int(11) NOT NULL,
   `unit_price` decimal(4,2) NOT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) 
 INSERT INTO `products` VALUES (1,'Foam Dinner Plate',70,1.21);
 INSERT INTO `products` VALUES (2,'Pork - Bacon,back Peameal',49,4.65);
 INSERT INTO `products` VALUES (3,'Lettuce - Romaine, Heart',38,3.35);
@@ -62,7 +62,7 @@ CREATE TABLE `order_statuses` (
   `order_status_id` tinyint(4) NOT NULL,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`order_status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 INSERT INTO `order_statuses` VALUES (1,'Processed');
 INSERT INTO `order_statuses` VALUES (2,'Shipped');
 INSERT INTO `order_statuses` VALUES (3,'Delivered');
@@ -83,7 +83,7 @@ CREATE TABLE `orders` (
   CONSTRAINT `fk_orders_customers` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_orders_order_statuses` FOREIGN KEY (`status`) REFERENCES `order_statuses` (`order_status_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_orders_shippers` FOREIGN KEY (`shipper_id`) REFERENCES `shippers` (`shipper_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 INSERT INTO `orders` VALUES (1,6,'2019-01-30',1,NULL,NULL,NULL);
 INSERT INTO `orders` VALUES (2,7,'2018-08-02',2,NULL,'2018-08-03',4);
 INSERT INTO `orders` VALUES (3,8,'2017-12-01',1,NULL,NULL,NULL);
